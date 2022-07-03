@@ -43,34 +43,34 @@ class LoginPage extends StatelessWidget {
                   'Log In',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 30,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 34),
               RoundedContainer(
-                padding: const EdgeInsets.all(11),
+                padding: const EdgeInsets.all(12),
                 child: TextField(
                   decoration: buildInputDecoration(hintText: 'Email'),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 14),
               RoundedContainer(
-                padding: const EdgeInsets.all(11),
+                padding: const EdgeInsets.all(12),
                 child: TextField(
                   obscureText: true,
                   decoration: buildInputDecoration(hintText: 'Password'),
                 ),
               ),
-              const SizedBox(height: 9),
+              const SizedBox(height: 16),
               RoundedContainer(
                 color: const Color(0xFF00818A),
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(12),
                 boxShadow: const [
                   BoxShadow(
                     color: Color(0xFF00818A),
-                    blurRadius: 10,
+                    blurRadius: 12,
                     offset: Offset(0, 3),
                   )
                 ],
@@ -82,7 +82,7 @@ class LoginPage extends StatelessWidget {
                       style: buttonTextStyle,
                     )),
               ),
-              const SizedBox(height: 9),
+              const SizedBox(height: 18),
               TextButton(
                 onPressed: null,
                 style: textButtonStyle,
@@ -91,11 +91,11 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(
                     color: Color(0x88FFFFFF),
                     fontFamily: 'Roboto',
-                    fontSize: 7,
+                    fontSize: 12,
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 48),
               TextButton(
                 onPressed: null,
                 style: textButtonStyle,
@@ -104,7 +104,7 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Roboto',
-                    fontSize: 9,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

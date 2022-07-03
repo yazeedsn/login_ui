@@ -23,7 +23,7 @@ class RoundedContainer extends StatelessWidget {
       padding: padding,
       decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(13),
+          borderRadius: BorderRadius.circular(26),
           boxShadow: boxShadow),
       child: child,
     );

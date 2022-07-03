@@ -4,14 +4,14 @@ const hintTextStyle = TextStyle(
   color: Color(0x881D2226),
   fontFamily: 'Roboto',
   fontWeight: FontWeight.normal,
-  fontSize: 7,
+  fontSize: 14,
 );
 
 const buttonTextStyle = TextStyle(
   color: Colors.white,
   fontFamily: 'Roboto',
   fontWeight: FontWeight.bold,
-  fontSize: 8,
+  fontSize: 16,
 );
 
 //style to remove the default padding around Text Buttons
