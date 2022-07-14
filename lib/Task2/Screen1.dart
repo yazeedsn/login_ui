@@ -72,7 +72,7 @@ class Screen1 extends StatelessWidget {
   RoundedContainer buildButton(String text) {
     return RoundedContainer(
       margin: EdgeInsets.zero,
-      padding: EdgeInsets.all(2),
+      padding: const EdgeInsets.all(2),
       child: TextButton(
           onPressed: () {},
           child: Text(

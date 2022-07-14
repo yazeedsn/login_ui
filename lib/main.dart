@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'Task2/Screen1.dart';
-import 'Task2/Screen2.dart';
+import 'package:login_ui/task3/screen1.dart';
+import 'package:login_ui/task3/screen2.dart';
+import 'package:login_ui/task3/screen3.dart';
 
 void main() {
   runApp(const MyApp());
