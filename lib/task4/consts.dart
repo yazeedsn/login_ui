@@ -17,6 +17,12 @@ const normalTextStyle = TextStyle(
     fontFamily: 'SFProText',
     fontWeight: FontWeight.normal);
 
+const inButtonTextStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 15,
+    fontFamily: 'SFProText',
+    fontWeight: FontWeight.w400);
+
 final textButtonStyle = normalTextStyle.copyWith(color: darkBlue);
 
 final subtitleTextStyle = TextStyle(

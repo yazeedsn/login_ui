@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login_ui/task4/consts.dart';
+import 'package:login_ui/task4/custom_button.dart';
 import 'package:login_ui/task4/custom_textfield.dart';
 
 class SigninScreen extends StatelessWidget {
@@ -20,10 +20,10 @@ class SigninScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Padding(
                   padding:
-                      const EdgeInsets.only(left: 80, right: 80, bottom: 35),
+                      const EdgeInsets.only(left: 80, right: 80, bottom: 25),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -40,7 +40,7 @@ class SigninScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
@@ -67,25 +67,14 @@ class SigninScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 55,
-                      alignment: Alignment.center,
-                      margin:
-                          const EdgeInsets.only(right: 90, left: 90, top: 40),
-                      decoration: blueButtonDecoration,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Sign up',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17,
-                          ),
-                        ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 90, right: 90),
+                      child: CustomButton(
+                        child: Text('Sign in', style: inButtonTextStyle),
                       ),
                     ),
                     const SizedBox(height: 25),
@@ -93,7 +82,7 @@ class SigninScreen extends StatelessWidget {
                         onPressed: () {},
                         child:
                             Text('Forgot Password?', style: textButtonStyle)),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

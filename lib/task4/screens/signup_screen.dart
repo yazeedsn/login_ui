@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:login_ui/task4/consts.dart';
+import 'package:login_ui/task4/custom_button.dart';
 import 'package:login_ui/task4/custom_textfield.dart';
-import 'package:login_ui/task4/custim_checkbox.dart';
+import 'package:login_ui/task4/custom_checkbox.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class SignupScreen extends StatelessWidget {
             Expanded(
               flex: 4,
               child: Padding(
-                padding: const EdgeInsets.only(left: 70, right: 80),
+                padding: const EdgeInsets.only(left: 70, right: 80, bottom: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -98,21 +99,10 @@ class SignupScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 55,
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.symmetric(horizontal: 90),
-                    decoration: blueButtonDecoration,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Sign up',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                        ),
-                      ),
-                    ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 90, right: 90, top: 14),
+                    child: CustomButton(
+                        child: Text('Sign up', style: inButtonTextStyle)),
                   ),
                   const SizedBox(height: 16),
                   Row(

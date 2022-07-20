@@ -24,12 +24,23 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   bool hideText = false;
   Color eyeColor = Colors.grey;
+  Color focusColor = black;
+  late FocusNode node;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     hideText = widget.hasEyeIcon;
+    node = FocusNode();
+    node.addListener(() {
+      setState(() {
+        if (node.hasFocus) {
+          focusColor = darkBlue;
+        } else {
+          focusColor = black;
+        }
+      });
+    });
   }
 
   @override
@@ -45,9 +56,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
           alignment: Alignment.centerLeft,
           children: [
             TextField(
+              focusNode: node,
               onChanged: widget.onChange,
               obscureText: hideText,
-              style: subtitleTextStyle.copyWith(color: black, fontSize: 17),
+              style:
+                  subtitleTextStyle.copyWith(color: focusColor, fontSize: 17),
               decoration: InputDecoration(
                   contentPadding: const EdgeInsets.only(left: 30, right: 8),
                   suffixIcon: (widget.hasEyeIcon)
@@ -67,8 +80,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         )
                       : null,
                   suffixIconConstraints:
-                      const BoxConstraints(minWidth: 25, maxHeight: 20),
+                      const BoxConstraints(maxWidth: 20, maxHeight: 20),
                   hintText: widget.hintText,
+                  focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: darkBlue)),
                   enabledBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFE4E7F1)))),
             ),

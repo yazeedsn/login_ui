@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:login_ui/task4/consts.dart';
+import 'package:login_ui/task4/custom_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 62),
+            padding: const EdgeInsets.symmetric(horizontal: 60),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,35 +40,25 @@ class WelcomeScreen extends StatelessWidget {
                 Expanded(flex: 2, child: Image.asset('images/welcome.png')),
                 Expanded(
                   flex: 1,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      TextButton(
-                        onPressed: null,
-                        child: Container(
-                          height: 55,
-                          alignment: Alignment.center,
-                          margin: const EdgeInsets.symmetric(horizontal: 30),
-                          decoration: blueButtonDecoration,
-                          child: const Text(
-                            'Sign up',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Container(
-                          height: 55,
-                          alignment: Alignment.center,
-                          margin: const EdgeInsets.symmetric(horizontal: 30),
-                          decoration: whiteButtonDecoration,
-                          child: const Text(
-                            'Sign in',
-                          ),
-                        ),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Column(
+                      children: [
+                        CustomButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, 'signUp'),
+                            child: const Text('Sign up',
+                                style: inButtonTextStyle)),
+                        const SizedBox(height: 18),
+                        CustomButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, 'signIn'),
+                            decoration: whiteButtonDecoration,
+                            child: Text('Sign in',
+                                style:
+                                    inButtonTextStyle.copyWith(color: black))),
+                      ],
+                    ),
                   ),
                 ),
               ],
