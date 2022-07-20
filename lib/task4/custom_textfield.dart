@@ -25,6 +25,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   bool hideText = false;
   Color eyeColor = Colors.grey;
   Color focusColor = black;
+  Color iconsColor = iconColor;
   late FocusNode node;
 
   @override
@@ -36,8 +37,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
       setState(() {
         if (node.hasFocus) {
           focusColor = darkBlue;
+          iconsColor = darkBlue;
         } else {
           focusColor = black;
+          iconsColor = iconColor;
         }
       });
     });
@@ -76,6 +79,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                                 ? const AssetImage(
                                     'images/icons/eye-crossed.png')
                                 : const AssetImage('images/icons/e.png'),
+                            color: iconsColor,
                           ),
                         )
                       : null,
