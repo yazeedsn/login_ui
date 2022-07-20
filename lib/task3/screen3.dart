@@ -16,7 +16,6 @@ class _Screen3State extends State<Screen3> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     emailFieldController.addListener(() {
       if (emailFieldController.text.isNotEmpty) {

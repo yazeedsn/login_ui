@@ -46,3 +46,8 @@ flutter:
       fonts:
         - asset: fonts/OpenSans-Regular.ttf
         - asset: fonts/OpenSans-Bold.ttf
+
+    - family: SFProText
+      fonts:
+        - asset: fonts/SFProText-Regular.otf
+        - asset: fonts/SFProText-Bold.otf
