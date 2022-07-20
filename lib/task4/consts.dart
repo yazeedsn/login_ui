@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const Color black = Color(0xFF1A1A1A);
 const Color darkBlue = Color(0xFF0081F6);
 const Color lightBlue = Color(0xFF44A6FF);
-const Color iconColor = Color(0xFFCBCCD0);
+const Color defaultIconColor = Color(0xFFCBCCD0);
 
 const titleTextStyle = TextStyle(
     color: black,
@@ -21,9 +21,13 @@ const inButtonTextStyle = TextStyle(
     color: Colors.white,
     fontSize: 15,
     fontFamily: 'SFProText',
-    fontWeight: FontWeight.w400);
+    fontWeight: FontWeight.w600);
 
-final textButtonStyle = normalTextStyle.copyWith(color: darkBlue);
+const textButtonStyle = TextStyle(
+    color: darkBlue,
+    fontSize: 14,
+    fontFamily: 'SFProText',
+    fontWeight: FontWeight.normal);
 
 final subtitleTextStyle = TextStyle(
     color: black.withOpacity(0.7),

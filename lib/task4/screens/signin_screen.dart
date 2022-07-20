@@ -51,7 +51,7 @@ class SigninScreen extends StatelessWidget {
                           title: 'Email',
                           prefixIcon: ImageIcon(
                             AssetImage('images/icons/person.png'),
-                            color: iconColor,
+                            color: defaultIconColor,
                           ),
                         ),
                         SizedBox(height: 12),
@@ -59,7 +59,7 @@ class SigninScreen extends StatelessWidget {
                           title: 'Password',
                           prefixIcon: ImageIcon(
                             AssetImage('images/icons/lock-open.png'),
-                            color: iconColor,
+                            color: defaultIconColor,
                           ),
                           hasEyeIcon: true,
                         ),

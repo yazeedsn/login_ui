@@ -25,7 +25,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   bool hideText = false;
   Color eyeColor = Colors.grey;
   Color focusColor = black;
-  Color iconsColor = iconColor;
+  Color iconsColor = defaultIconColor;
   late FocusNode node;
 
   @override
@@ -40,7 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           iconsColor = darkBlue;
         } else {
           focusColor = black;
-          iconsColor = iconColor;
+          iconsColor = defaultIconColor;
         }
       });
     });

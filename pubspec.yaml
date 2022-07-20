@@ -51,4 +51,4 @@ flutter:
       fonts:
         - asset: fonts/SFProText-Regular.otf
         - asset: fonts/SFProText-Bold.otf
-        - asset: fonts/SFProText-Semibold.otf
+        - asset: fonts/SFProText-Semi-bold.otf

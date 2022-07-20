@@ -30,7 +30,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(2),
             ),
-            side: const BorderSide(width: 1, color: iconColor),
+            side: const BorderSide(width: 1, color: defaultIconColor),
             onChanged: (value) {
               setState(() {
                 checked = value ?? false;
