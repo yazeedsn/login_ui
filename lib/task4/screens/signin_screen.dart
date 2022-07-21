@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_ui/task4/consts.dart';
 import 'package:login_ui/task4/custom_button.dart';
 import 'package:login_ui/task4/custom_textfield.dart';
+import 'package:login_ui/task4/screens/signup_screen.dart';
 
 class SigninScreen extends StatelessWidget {
   const SigninScreen({Key? key}) : super(key: key);
@@ -80,8 +81,8 @@ class SigninScreen extends StatelessWidget {
                     const SizedBox(height: 25),
                     TextButton(
                         onPressed: () {},
-                        child:
-                            Text('Forgot Password?', style: textButtonStyle)),
+                        child: const Text('Forgot Password?',
+                            style: textButtonStyle)),
                     const SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -92,9 +93,11 @@ class SigninScreen extends StatelessWidget {
                         ),
                         Flexible(
                           child: TextButton(
-                              onPressed: () {},
-                              child:
-                                  Text('Sign un here', style: textButtonStyle)),
+                              onPressed: () {
+                                Navigator.pushNamed(context, 'signUp');
+                              },
+                              child: const Text('Sign un here',
+                                  style: textButtonStyle)),
                         )
                       ],
                     ),

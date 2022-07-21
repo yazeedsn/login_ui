@@ -8,7 +8,8 @@ class CustomTextField extends StatefulWidget {
       this.prefixIcon,
       this.hasEyeIcon = false,
       this.hintText,
-      this.onChange})
+      this.onChange,
+      this.validator})
       : super(key: key);
 
   final String? title;
@@ -16,6 +17,7 @@ class CustomTextField extends StatefulWidget {
   final Widget? prefixIcon;
   final bool hasEyeIcon;
   final Function(String)? onChange;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -58,10 +60,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
         Stack(
           alignment: Alignment.centerLeft,
           children: [
-            TextField(
+            TextFormField(
               focusNode: node,
               onChanged: widget.onChange,
               obscureText: hideText,
+              validator: widget.validator,
               style:
                   subtitleTextStyle.copyWith(color: focusColor, fontSize: 17),
               decoration: InputDecoration(
