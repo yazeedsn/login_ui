@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:login_ui/task4/consts.dart';
 import 'package:login_ui/task4/custom_button.dart';
 import 'package:login_ui/task4/custom_textfield.dart';
-import 'package:login_ui/task4/screens/signup_screen.dart';
 
 class SigninScreen extends StatelessWidget {
   const SigninScreen({Key? key}) : super(key: key);
@@ -73,7 +72,7 @@ class SigninScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Padding(
-                      padding: EdgeInsets.only(left: 90, right: 90),
+                      padding: EdgeInsets.only(left: 90, right: 90, top: 16),
                       child: CustomButton(
                         child: Text('Sign in', style: inButtonTextStyle),
                       ),

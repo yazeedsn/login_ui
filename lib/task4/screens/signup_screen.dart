@@ -27,10 +27,10 @@ class SignupScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                flex: 4,
+                flex: 5,
                 child: Padding(
                   padding:
-                      const EdgeInsets.only(left: 70, right: 80, bottom: 15),
+                      const EdgeInsets.only(left: 70, right: 80, bottom: 36),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -47,13 +47,13 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 8,
+                flex: 7,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 40, right: 40),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CustomTextField(
                           title: 'Email',
