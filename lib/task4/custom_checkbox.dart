@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:login_ui/task4/consts.dart';
 
 class CustomCheckBox extends StatefulWidget {
-  const CustomCheckBox(
-      {Key? key, required this.title, this.formfieldKey, this.validator})
+  const CustomCheckBox({Key? key, required this.title, this.onChange})
       : super(key: key);
 
   final Widget title;
-  final GlobalKey<FormFieldState>? formfieldKey;
-  final String? Function(bool?)? validator;
+  final void Function(bool)? onChange;
 
   @override
   State<CustomCheckBox> createState() => _CustomCheckBoxState();
@@ -20,17 +18,19 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
 
   @override
   Widget build(BuildContext context) {
-    return FormField(
-      key: widget.formfieldKey,
-      initialValue: _checked,
-      builder: (FormFieldState<bool> field) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          textBaseline: TextBaseline.alphabetic,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Checkbox(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
+        children: [
+          Baseline(
+            baseline: 36,
+            baselineType: TextBaseline.alphabetic,
+            child: Checkbox(
+                visualDensity: VisualDensity.standard,
                 value: _checked,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(2),
@@ -40,12 +40,14 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
                   setState(() {
                     _checked = value ?? false;
                   });
+                  if (widget.onChange != null) {
+                    widget.onChange!(value ?? false);
+                  }
                 }),
-            Flexible(child: widget.title),
-          ],
-        );
-      },
-      validator: widget.validator,
+          ),
+          Flexible(child: widget.title),
+        ],
+      ),
     );
   }
 }

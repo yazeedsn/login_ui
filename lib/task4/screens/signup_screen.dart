@@ -9,11 +9,11 @@ import 'package:login_ui/task4/validation_functions.dart';
 class SignupScreen extends StatelessWidget {
   SignupScreen({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
-  final _termKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) {
     String? password;
+    bool terms = false;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -50,83 +50,84 @@ class SignupScreen extends StatelessWidget {
                 flex: 8,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 40, right: 40),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      CustomTextField(
-                        title: 'Email',
-                        prefixIcon: const ImageIcon(
-                          AssetImage('images/icons/person.png'),
-                          color: defaultIconColor,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        CustomTextField(
+                          title: 'Email',
+                          prefixIcon: const ImageIcon(
+                            AssetImage('images/icons/person.png'),
+                            color: defaultIconColor,
+                          ),
+                          validator: (value) {
+                            if (!isEmail(value)) {
+                              return 'Please enter a valid email!';
+                            }
+                            return null;
+                          },
                         ),
-                        validator: (value) {
-                          if (!isEmail(value)) {
-                            return 'Please enter a valid email!';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 12),
-                      CustomTextField(
-                        title: 'Password',
-                        prefixIcon: const ImageIcon(
-                          AssetImage('images/icons/lock-open.png'),
-                          color: defaultIconColor,
+                        const SizedBox(height: 12),
+                        CustomTextField(
+                          title: 'Password',
+                          prefixIcon: const ImageIcon(
+                            AssetImage('images/icons/lock-open.png'),
+                            color: defaultIconColor,
+                          ),
+                          hasEyeIcon: true,
+                          onChange: (value) {
+                            password = value;
+                          },
+                          validator: (value) {
+                            if (!isValidPassword(value)) {
+                              return 'Password must be at least 8 characters long!';
+                            }
+                            return null;
+                          },
                         ),
-                        hasEyeIcon: true,
-                        onChange: (value) {
-                          password = value;
-                        },
-                        validator: (value) {
-                          if (!isValidPassword(value)) {
-                            return 'Password must be at least 8 characters long!';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 12),
-                      CustomTextField(
-                        prefixIcon: const ImageIcon(
-                          AssetImage('images/icons/lock-open.png'),
-                          color: defaultIconColor,
+                        const SizedBox(height: 12),
+                        CustomTextField(
+                          prefixIcon: const ImageIcon(
+                            AssetImage('images/icons/lock-open.png'),
+                            color: defaultIconColor,
+                          ),
+                          hasEyeIcon: true,
+                          hintText: 'Conform Password',
+                          validator: (value) {
+                            if (password == null || value != password) {
+                              return "Passwords doesn't match";
+                            }
+                            return null;
+                          },
                         ),
-                        hasEyeIcon: true,
-                        hintText: 'Conform Password',
-                        validator: (value) {
-                          if (password == null || value != password) {
-                            return "Passwords doesn't match";
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 30),
-                      const CustomCheckBox(
+                        const SizedBox(height: 26),
+                        const CustomCheckBox(
                           title: Text(
                               'Yes, I want to receive promotional emails',
-                              style: normalTextStyle)),
-                      CustomCheckBox(
-                        key: _termKey,
-                        title: RichText(
-                          text: const TextSpan(
-                              style: normalTextStyle,
-                              text: 'I agree with the ',
-                              children: [
-                                TextSpan(
-                                    text: 'Terms and Condition',
-                                    style: textButtonStyle),
-                                TextSpan(
-                                    text: ' and the ', style: normalTextStyle),
-                                TextSpan(
-                                    text: 'Privacy Policy',
-                                    style: textButtonStyle),
-                              ]),
+                              style: normalTextStyle),
                         ),
-                        validator: (value) => (value == false)
-                            ? 'You must agree to Terms and Conditions.'
-                            : null,
-                      ),
-                    ],
+                        CustomCheckBox(
+                          title: RichText(
+                            text: const TextSpan(
+                                style: normalTextStyle,
+                                text: 'I agree with the ',
+                                children: [
+                                  TextSpan(
+                                      text: 'Terms and Condition',
+                                      style: textButtonStyle),
+                                  TextSpan(
+                                      text: ' and the ',
+                                      style: normalTextStyle),
+                                  TextSpan(
+                                      text: 'Privacy Policy',
+                                      style: textButtonStyle),
+                                ]),
+                          ),
+                          onChange: (value) => terms = value,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -141,11 +142,18 @@ class SignupScreen extends StatelessWidget {
                       child: CustomButton(
                         child: const Text('Sign up', style: inButtonTextStyle),
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                          if (_formKey.currentState!.validate() && terms) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content: Text(
                                         'Sending data for authentication.')));
+                          } else {
+                            if (!terms) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'You must agree to Terms and Conditions.')));
+                            }
                           }
                         },
                       ),

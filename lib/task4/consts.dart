@@ -13,6 +13,7 @@ const titleTextStyle = TextStyle(
 
 const normalTextStyle = TextStyle(
     color: black,
+    height: 1.5,
     fontSize: 14,
     fontFamily: 'SFProText',
     fontWeight: FontWeight.normal);
